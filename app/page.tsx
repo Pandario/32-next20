@@ -6,6 +6,7 @@ import Reviews from "./mainPage/components/Reviews";
 import Benefits2 from "./mainPage/components/Benifits2";
 import News from "./mainPage/components/newsletter/News";
 import Footer from "./mainPage/components/Footer";
+import MapComponent from "./about/components/MapComponent";
 
 
 

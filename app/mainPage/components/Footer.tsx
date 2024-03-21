@@ -5,6 +5,7 @@ import Image from 'next/image';
 import topLogo from '@/public/img/topLogo.png';
 import Link from 'next/link';
 
+
 const Footer: React.FC = () => {
 
     return (
