@@ -1,10 +1,7 @@
 'use client'
-import React from 'react';
-import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
+import React, { useState } from 'react';
+import { GoogleMap, InfoWindow, Marker, useJsApiLoader } from '@react-google-maps/api';
 
-// Define types for your component's props and state if needed. For this simple component, we might not have props or state, but here's how you could define them if needed:
-// interface MapComponentProps {}
-// interface MapComponentState {}
 
 const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';
 
@@ -15,15 +12,16 @@ const containerStyle = {
 };
 
 const center = {
-  lat: 52.3676, // Latitude for Almere, Netherlands
-  lng: 5.2167, // Longitude for Almere, Netherlands
+  lat: 52.3676, 
+  lng: 5.2167, 
 };
 
 const MapComponent: React.FC = () => {
   const { isLoaded, loadError } = useJsApiLoader({
-    googleMapsApiKey: googleMapsApiKey  // Replace "YOUR_API_KEY" with your actual Google Maps API key
+    googleMapsApiKey: googleMapsApiKey  
   });
 
+  const [showInfoWindow, setShowInfoWindow] = useState(false);
   if (loadError) {
     return <div>Map cannot be loaded right now, sorry.</div>;
   }
@@ -36,8 +34,24 @@ const MapComponent: React.FC = () => {
           center={center}
           zoom={10}
         >
-          {/* Marker */}
-          <Marker position={center} />
+          
+        <Marker 
+            position={center}
+            onClick={() => setShowInfoWindow(true)} 
+        />
+        { showInfoWindow && (
+          <InfoWindow
+            position={center}
+            onCloseClick={() => setShowInfoWindow(false)}
+          >
+            <div className="">
+              <h3>Our place</h3>
+              <p>Information about our place.</p>
+            </div>
+          </InfoWindow>
+        )
+
+        }
         </GoogleMap>
       </div>
     </div>
