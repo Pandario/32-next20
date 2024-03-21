@@ -28,7 +28,7 @@ const MapComponent: React.FC = () => {
 
   return isLoaded ? (
     <div className="flex justify-center items-center">
-      <div className="w-[500px] h-[500px] sm:w-[250px] sm:h-[250px]">
+      <div className="lg:w-[500px] lg:h-[500px] w-[300px] h-[300px] md:p-0 p-4">
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
