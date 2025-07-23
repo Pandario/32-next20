@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
           <a href="https://github.com/Pandario" className="text-xl mr-2">
             <FaGithub />
           </a>
-          <a href="https://www.linkedin.com/in/andrey-chernov-549700242/" className="text-xl">
+          <a href="https://www.linkedin.com/in/andrew-pandario-3a4367367/" className="text-xl">
             <FaLinkedin />
           </a>
         </div>
